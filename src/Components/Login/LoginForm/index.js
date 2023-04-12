@@ -1,9 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Input } from "../../Forms/Input";
 import { Button } from "../../Forms/Button";
 import { useForm } from "../../../Hooks/useForm";
 import { UserContext } from "../../../Contexts/UserContext";
+import { Error } from "../../Helper/Error";
+import * as C from "./styles";
 
 export const LoginForm = () => {
   const username = useForm();
@@ -20,9 +22,9 @@ export const LoginForm = () => {
   }
 
   return (
-    <section>
-      <h1>Login</h1>
-      <form action="" onSubmit={handleSubmit}>
+    <section className="animeLeft">
+      <h1 className="title">Login</h1>
+      <C.Form onSubmit={handleSubmit}>
         <Input label="Usuário" type="text" name="username" {...username} />
         <Input label="Senha" type="password" name="password" {...password} />
         {loading ? (
@@ -30,9 +32,14 @@ export const LoginForm = () => {
         ) : (
           <Button>Entrar</Button>
         )}
-        {error && <p>{error}</p>}
-      </form>
-      <Link to="/login/criar">Cadastro</Link>
+        <Error error={error} />
+      </C.Form>
+      <C.Perdeu to="/login/perdeu">Perdeu a Senha?</C.Perdeu>
+      <C.Cadastro>
+        <C.Subtitle>Cadastre-se</C.Subtitle>
+        <p>Ainda não possui conta? Cadastre-se no site.</p>
+      </C.Cadastro>
+      <C.ButtonCriar to="/login/criar">Cadastro</C.ButtonCriar>
     </section>
   );
 };
