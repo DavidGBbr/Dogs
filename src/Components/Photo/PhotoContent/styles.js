@@ -10,6 +10,7 @@ export const Photo = styled.div`
   grid-template-columns: 36rem 20rem;
   grid-template-rows: auto 1fr auto;
   overflow: hidden;
+  opacity: 0;
   transform: scale(0.8);
   animation: scaleUp 0.3s forwards;
 
@@ -22,7 +23,7 @@ export const Photo = styled.div`
 
   @media (max-width: 64rem) {
     height: auto;
-    max-width: calc(100vh - 4rem);
+    max-height: calc(100vh - 4rem);
     overflow-y: auto;
     grid-template-columns: minmax(20rem, 40rem);
   }
