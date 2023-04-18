@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { PhotoComments } from "../PhotoComments";
 import { UserContext } from "../../../Contexts/UserContext";
 import { PhotoDelete } from "../PhotoDelete";
+import { Image } from "../../Helper/Image";
 
 export const PhotoContent = ({ data }) => {
   const user = useContext(UserContext);
@@ -12,7 +13,7 @@ export const PhotoContent = ({ data }) => {
   return (
     <C.Photo>
       <C.Img>
-        <img src={photo.src} alt={photo.title} />
+        <Image src={photo.src} alt={photo.title} />
       </C.Img>
       <C.Details>
         <div>

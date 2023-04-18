@@ -17,7 +17,7 @@ export const Photo = styled.li`
     }
   }
 
-  img,
+  div,
   span {
     grid-area: 1/1;
   }
