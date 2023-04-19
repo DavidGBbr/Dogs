@@ -14,6 +14,11 @@ export const Photo = styled.div`
   transform: scale(0.8);
   animation: scaleUp 0.3s forwards;
 
+  &.single {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
   @keyframes scaleUp {
     to {
       opacity: initial;
@@ -32,6 +37,12 @@ export const Photo = styled.div`
 export const Img = styled.div`
   grid-row: 1/4;
 
+  &.single {
+    grid-row: 1;
+    border-radius: 0.4rem;
+    overflow: hidden;
+  }
+
   @media (max-width: 64rem) {
     grid-row: 1;
   }
@@ -39,6 +50,10 @@ export const Img = styled.div`
 
 export const Details = styled.div`
   padding: 2rem 2rem 0 2rem;
+
+  &.single {
+    padding: 1rem 0px 0px 0px;
+  }
 `;
 
 export const Visualizacoes = styled.span`

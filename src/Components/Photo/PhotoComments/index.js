@@ -16,7 +16,10 @@ export const PhotoComments = (props) => {
 
   return (
     <>
-      <C.Comments ref={commentsSection}>
+      <C.Comments
+        ref={commentsSection}
+        className={props.single ? "single" : ""}
+      >
         {comments.map((comment) => (
           <li key={comment.comment_ID}>
             <b>{comment.comment_author}: </b>
@@ -24,7 +27,13 @@ export const PhotoComments = (props) => {
           </li>
         ))}
       </C.Comments>
-      {login && <PhotoCommentsForm id={props.id} setComments={setComments} />}
+      {login && (
+        <PhotoCommentsForm
+          single={props.single}
+          id={props.id}
+          setComments={setComments}
+        />
+      )}
     </>
   );
 };

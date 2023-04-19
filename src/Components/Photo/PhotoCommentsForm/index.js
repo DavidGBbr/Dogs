@@ -5,7 +5,7 @@ import { COMMENT_POST } from "../../../api";
 import { Error } from "../../Helper/Error";
 import * as C from "./styles";
 
-export const PhotoCommentsForm = ({ id, setComments }) => {
+export const PhotoCommentsForm = ({ id, setComments, single }) => {
   const [comment, setComment] = useState("");
   const { request, error } = useFetch();
 
@@ -13,7 +13,6 @@ export const PhotoCommentsForm = ({ id, setComments }) => {
     event.preventDefault();
     const { url, options } = COMMENT_POST(id, { comment });
     const { response, json } = await request(url, options);
-    console.log(json);
     if (response.ok) {
       setComment("");
       setComments((comments) => [...comments, json]);
@@ -21,7 +20,7 @@ export const PhotoCommentsForm = ({ id, setComments }) => {
   }
 
   return (
-    <C.Form onSubmit={handleSubmit}>
+    <C.Form onSubmit={handleSubmit} className={single ? "single" : ""}>
       <C.Textarea
         id="comment"
         name="comment"
