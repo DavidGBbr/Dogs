@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import * as C from "./styles";
 import { FeedModal } from "./FeedModal";
 import { FeedPhotos } from "./FeedPhotos";
 import { useState } from "react";
+import PropsTypes from "prop-types";
 
 export const Feed = ({ user }) => {
   const [modalPhoto, setModalPhoto] = useState(null);
@@ -47,6 +47,28 @@ export const Feed = ({ user }) => {
           setInfinite={setInfinite}
         />
       ))}
+      {!infinite && !user && (
+        <p
+          style={{
+            textAlign: "center",
+            padding: "2rem 0 4rem 0",
+            color: "#888",
+          }}
+        >
+          Não existem mais postagens.
+        </p>
+      )}
     </div>
   );
+};
+
+Feed.defaultProps = {
+  user: 0,
+};
+
+Feed.propTypes = {
+  user: PropsTypes.oneOfType([
+    PropsTypes.string.isRequired,
+    PropsTypes.number.isRequired,
+  ]),
 };
