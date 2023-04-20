@@ -35,9 +35,9 @@ export const LoginPasswordLost = () => {
           ) : (
             <Button>Enviar Email</Button>
           )}
-          <Error error={error} />
         </form>
       )}
+      <Error error={error} />
     </section>
   );
 };
