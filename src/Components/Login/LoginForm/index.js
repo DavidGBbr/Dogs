@@ -34,14 +34,14 @@ export const LoginForm = () => {
         ) : (
           <Button>Entrar</Button>
         )}
-        <Error error={error} />
+        <Error error={error && "Dados incorretos."} />
       </C.Form>
       <C.Perdeu to="/login/perdeu">Perdeu a Senha?</C.Perdeu>
       <C.Cadastro>
         <C.Subtitle>Cadastre-se</C.Subtitle>
         <p>Ainda não possui conta? Cadastre-se no site.</p>
+        <C.ButtonCriar to="/login/criar">Cadastro</C.ButtonCriar>
       </C.Cadastro>
-      <C.ButtonCriar to="/login/criar">Cadastro</C.ButtonCriar>
     </section>
   );
 };

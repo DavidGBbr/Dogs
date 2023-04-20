@@ -45,6 +45,7 @@ export const ButtonCriar = styled(Link)`
 
 export const Cadastro = styled.div`
   margin-top: 4rem;
+  margin-bottom: 4rem;
 
   p {
     margin-top: 2rem;
