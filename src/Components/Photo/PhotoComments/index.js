@@ -1,13 +1,13 @@
-import React, { useContext, useState } from "react";
-import { UserContext } from "../../../Contexts/UserContext";
+import React, { useState } from "react";
 import { PhotoCommentsForm } from "../PhotoCommentsForm";
 import * as C from "./styles";
 import { useRef } from "react";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 export const PhotoComments = (props) => {
   const [comments, setComments] = useState(() => props.comments);
-  const { login } = useContext(UserContext);
+  const { data } = useSelector((state) => state.user);
   const commentsSection = useRef(null);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export const PhotoComments = (props) => {
           </li>
         ))}
       </C.Comments>
-      {login && (
+      {data && (
         <PhotoCommentsForm
           single={props.single}
           id={props.id}

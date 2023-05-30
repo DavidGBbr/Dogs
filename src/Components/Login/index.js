@@ -4,14 +4,15 @@ import { LoginForm } from "./LoginForm";
 import { LoginCreate } from "./LoginCreate";
 import { LoginPasswordLost } from "./LoginPasswordLost";
 import { LoginPasswordReset } from "./LoginPasswordReset";
-import { UserContext } from "../../Contexts/UserContext";
 import * as C from "./styles";
 import { NotFound } from "../NotFound";
 import { useSelector } from "react-redux";
+import { Loading } from "../Helper/Loading";
 
 export const Login = () => {
-  const { data } = useSelector((state) => state.user);
+  const { data, loading } = useSelector((state) => state.user);
 
+  if (loading) return <Loading />;
   if (data) return <Navigate to="/conta" />;
   return (
     <C.Login>
