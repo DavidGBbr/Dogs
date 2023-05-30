@@ -7,10 +7,12 @@ import { LoginPasswordReset } from "./LoginPasswordReset";
 import { UserContext } from "../../Contexts/UserContext";
 import * as C from "./styles";
 import { NotFound } from "../NotFound";
+import { useSelector } from "react-redux";
 
 export const Login = () => {
-  const { login } = useContext(UserContext);
-  if (login === true) return <Navigate to="/conta" />;
+  const { data } = useSelector((state) => state.user);
+
+  if (data) return <Navigate to="/conta" />;
   return (
     <C.Login>
       <C.Forms>
