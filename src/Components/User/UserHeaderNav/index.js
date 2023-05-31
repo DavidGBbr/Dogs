@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import * as C from "./styles";
 import { NavLink, useLocation } from "react-router-dom";
 import { ReactComponent as MinhasFotos } from "../../../Assets/feed.svg";
